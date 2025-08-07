@@ -10,14 +10,27 @@ export function Display() {
   const [city, setCity] = useState('')
   const [message, setMessage] = useState('Waiting for input...')
 
-  const dataWLG = useQuery({ queryKey: [city], queryFn: getWeatherWellington })
-  console.log(dataWLG)
-
   function handleClick(city: string) {
-    setCity(city)
+    if (city == 'Wellington') {
+      const data = useQuery({
+        queryKey: [city],
+        queryFn: getWeatherWellington,
+      })
+      return data
+    } else if (city == 'Auckland') {
+      const data = useQuery({
+        queryKey: [city],
+        queryFn: getWeatherAuckland,
+      })
+      return data
+    } else if (city == 'Christchurch') {
+      const data = useQuery({
+        queryKey: [city],
+        queryFn: getWeatherChristchurch,
+      })
+      return data
+    }
   }
-
-  const walkThreshold = 15 //check with Kade
 
   // if (temperature > walkThreshold) {
   //   setMessage(
