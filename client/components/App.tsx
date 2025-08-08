@@ -13,8 +13,8 @@ function App() {
       <Display />
       <div className="footer">
         <p>
-          Weather or Not shall not be held liable for any incorrect data. The
-          API used was recommended by Dev Academy, so please visit them ©
+          Weather or Not© shall not be held liable for any incorrect data. The
+          API used was recommended by Dev Academy, so please visit them
         </p>
       </div>
     </div>
