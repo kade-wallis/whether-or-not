@@ -43,12 +43,12 @@ export function Display() {
         setWeatherMessage(
           `The temperature in ${city} is ${temperature}°C Rain level: ${rain}${rainUnit} Wind (km/h): ${windSpeed}`,
         )
-        setVerdict(`Its a good day for a walk!`)
+        setVerdict(`Its a good day for a walk! 🌞`)
       } else if (temperature < walkThreshold || windSpeed > windThreshold) {
         setWeatherMessage(
           `The temperature in ${city} is ${temperature}°C Rain level: ${rain}${rainUnit} Wind (km/h): ${windSpeed}`,
         )
-        setVerdict('You should probably stay inside!')
+        setVerdict('You should probably stay inside! 🥶')
       }
     }
   }, [isSuccess, data, city])
