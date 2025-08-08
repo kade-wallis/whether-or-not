@@ -10,7 +10,7 @@ import { WeatherData } from '../../models/weather'
 export function Display() {
   // Set up state to track selected city and display message
   const [city, setCity] = useState('')
-  const [weatherMessage, setWeatherMessage] = useState('Waiting for input...')
+  const [weatherMessage, setWeatherMessage] = useState('')
   const [verdict, setVerdict] = useState('Choose a city to see the verdict!')
 
   const walkThreshold = 15 // Minimum temperature for walking
