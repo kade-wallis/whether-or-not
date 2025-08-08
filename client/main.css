@@ -50,3 +50,14 @@ img.weathericon {
   width: 120px;
   height: auto;
 }
+
+.footer {
+  background-color: #dcdddd;
+  color: black;
+  margin-top: 40px;
+  padding: 10px 0;
+}
+
+.footer p {
+  font-size: 10px;
+}
