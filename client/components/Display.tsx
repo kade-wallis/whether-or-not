@@ -65,10 +65,12 @@ export function Display() {
       {/* Display loading, error, or the weather message */}
       {isLoading && <p>Loading...</p>}
       {isError && <p>Something went wrong. Try again.</p>}
+
       <h2>{verdict}</h2>
       <h4>{tempMessage}</h4>
       <h4>{rainMessage}</h4>
       <h4>{windMessage}</h4>
+
     </div>
   )
 }
