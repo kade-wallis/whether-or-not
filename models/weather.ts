@@ -14,10 +14,16 @@ export interface Current {
   time: string
   interval: number
   temperature_2m: number
+  precipitation: number
+  wind_speed_10m: number
+  cloud_cover: number
 }
 
 export interface CurrentUnits {
   time: string
   interval: string
   temperature_2m: string
+  precipitation: string
+  wind_speed_10m: string
+  cloud_cover: string
 }
