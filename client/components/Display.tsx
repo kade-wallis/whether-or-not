@@ -10,10 +10,11 @@ import { WeatherData } from '../../models/weather'
 export function Display() {
   // Set up state to track selected city and display message
   const [city, setCity] = useState('')
-  const [message, setMessage] = useState('Waiting for input...')
-
+  const [weatherMessage, setWeatherMessage] = useState('Waiting for input...')
+  const [verdict, setVerdict] = useState('Choose a city to see the verdict!')
 
   const walkThreshold = 15 // Minimum temperature for walking
+  const windThreshold = 20 // Maximum wind allowed for walking
 
   // Fetch weather data when a city is selected
   const { data, isSuccess, isLoading, isError } = useQuery<
@@ -33,16 +34,21 @@ export function Display() {
   useEffect(() => {
     if (isSuccess && data) {
       const temperature = data.current.temperature_2m
+      const rain = data.current.precipitation
+      const rainUnit = data.current_units.precipitation
+      const windSpeed = data.current.wind_speed_10m
 
       // Check temperature and set appropriate message
-      if (temperature >= walkThreshold) {
-        setMessage(
-          `The temperature in ${city} is ${temperature}°C — you can go for a walk!`,
+      if (temperature >= walkThreshold && windSpeed <= windThreshold) {
+        setWeatherMessage(
+          `The temperature in ${city} is ${temperature}°C Rain level: ${rain}${rainUnit} Wind (km/h): ${windSpeed}`,
         )
-      } else {
-        setMessage(
-          `The temperature in ${city} is ${temperature}°C — better stay inside!`,
+        setVerdict(`Its a good day for a walk!`)
+      } else if (temperature < walkThreshold || windSpeed > windThreshold) {
+        setWeatherMessage(
+          `The temperature in ${city} is ${temperature}°C Rain level: ${rain}${rainUnit} Wind (km/h): ${windSpeed}`,
         )
+        setVerdict('You should probably stay inside!')
       }
     }
   }, [isSuccess, data, city])
@@ -57,7 +63,8 @@ export function Display() {
       {/* Display loading, error, or the weather message */}
       {isLoading && <p>Loading...</p>}
       {isError && <p>Something went wrong. Try again.</p>}
-      <h4>{message}</h4>
+      <h2>{verdict}</h2>
+      <h4>{weatherMessage}</h4>
     </div>
   )
 }
