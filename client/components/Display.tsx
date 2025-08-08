@@ -12,6 +12,7 @@ export function Display() {
   const [city, setCity] = useState('')
   const [message, setMessage] = useState('Waiting for input...')
 
+
   const walkThreshold = 15 // Minimum temperature for walking
 
   // Fetch weather data when a city is selected
