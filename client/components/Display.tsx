@@ -10,7 +10,9 @@ import { WeatherData } from '../../models/weather'
 export function Display() {
   // Set up state to track selected city and display message
   const [city, setCity] = useState('')
-  const [weatherMessage, setWeatherMessage] = useState('')
+  const [tempMessage, setWeatherMessage] = useState('')
+  const [rainMessage, setRainMessage] = useState('')
+  const [windMessage, setWindMessage] = useState('')
   const [verdict, setVerdict] = useState('Choose a city to see the verdict!')
 
   const walkThreshold = 15 // Minimum temperature for walking
@@ -40,14 +42,14 @@ export function Display() {
 
       // Check temperature and set appropriate message
       if (temperature >= walkThreshold && windSpeed <= windThreshold) {
-        setWeatherMessage(
-          `The temperature in ${city} is ${temperature}°C Rain level: ${rain}${rainUnit} Wind (km/h): ${windSpeed}`,
-        )
+        setWeatherMessage(`The temperature in ${city} is ${temperature}°C`)
+        setRainMessage(`Rain level: ${rain}${rainUnit}`)
+        setWindMessage(`Wind (km/h): ${windSpeed}`)
         setVerdict(`Its a good day for a walk! 🌞`)
       } else if (temperature < walkThreshold || windSpeed > windThreshold) {
-        setWeatherMessage(
-          `The temperature in ${city} is ${temperature}°C Rain level: ${rain}${rainUnit} Wind (km/h): ${windSpeed}`,
-        )
+        setWeatherMessage(`The temperature in ${city} is ${temperature}°C`)
+        setRainMessage(`Rain level: ${rain}${rainUnit}`)
+        setWindMessage(`Wind (km/h): ${windSpeed}`)
         setVerdict('You should probably stay inside! 🥶')
       }
     }
@@ -64,7 +66,9 @@ export function Display() {
       {isLoading && <p>Loading...</p>}
       {isError && <p>Something went wrong. Try again.</p>}
       <h2>{verdict}</h2>
-      <h4>{weatherMessage}</h4>
+      <h4>{tempMessage}</h4>
+      <h4>{rainMessage}</h4>
+      <h4>{windMessage}</h4>
     </div>
   )
 }
