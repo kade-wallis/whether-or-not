@@ -1,26 +1,19 @@
-# Phase 1 Boilerplate
 
-## Packages Included
+# Whether Or Not 
 
-- react
-- react-router-dom
-- @tanstack/react-query
-- vite
-- vitest
-- eslint
+A weather app that helps you decide **whether or not** to go for a walk or not based on the forecast.  
 
-## Setup
+## Features
+- Search for a city and get the current weather  
+- Simple UI showing temperature and conditions  
+- Built with React, Vite, and TypeScript  
+- Uses a public weather API for live data  
 
-- [ ] Clone this repo, navigate to it, install packages, and start the server with `npm run dev`
-  <details style="padding-left: 2em">
-    <summary>Tip</summary>
+## Screenshots
+*(add a screenshot here if you’ve got one)*  
 
-    ```sh
-    npm install
-    npm run dev
-    ```
-  </details>
+## How to Run
+npm install
 
----
-
-[Provide feedback on this repo](https://docs.google.com/forms/d/e/1FAIpQLSfw4FGdWkLwMLlUaNQ8FtP2CTJdGDUv6Xoxrh19zIrJSkvT4Q/viewform?usp=pp_url&entry.1958421517=boilerplate-phase1)
+# start dev server
+npm run dev
